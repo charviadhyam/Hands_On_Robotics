@@ -2,7 +2,7 @@ from machine import Pin
 import time
 
 button = Pin(14, Pin.IN, Pin.PULL_DOWN)   # Button pin with pull-down resistor
-led = Pin(5, Pin.OUT)                    # LED pin
+led = Pin(18, Pin.OUT)                    # LED pin
 
 while True:
     if button.value() == 1:   # Button pressed
