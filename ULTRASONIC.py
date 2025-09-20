@@ -1,8 +1,8 @@
 from machine import Pin, time_pulse_us
 import time
 
-trig = Pin(5, Pin.OUT)
-echo = Pin(18, Pin.IN)
+trig = Pin(33, Pin.OUT)
+echo = Pin(35, Pin.IN)
 
 def get_distance():
     trig.value(0)
