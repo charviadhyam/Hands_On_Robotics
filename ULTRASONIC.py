@@ -1,14 +1,14 @@
 from machine import Pin, time_pulse_us
-import time
+from time import sleep 
 
 trig = Pin(33, Pin.OUT)
 echo = Pin(35, Pin.IN)
 
 def get_distance():
     trig.value(0)
-    time.sleep_us(2)
+    sleep(1)
     trig.value(1)
-    time.sleep_us(10)
+    sleep(1)
     trig.value(0)
 
     duration = time_pulse_us(echo, 1, 30000)  
@@ -16,9 +16,6 @@ def get_distance():
     return distance
 
 while True:
-    try:
-        dist = get_distance()
-        print("Distance: {:.2f} cm".format(dist))
-    except OSError:
-        print("Out of range")
-    time.sleep(1)
+        d = get_distance()
+        print("Distance ",d,' cm')
+sleep(1)
