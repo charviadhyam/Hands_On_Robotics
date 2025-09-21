@@ -1,8 +1,8 @@
 from machine import Pin
-import time
+from time import sleep 
 
 # Define LED pin
-led = Pin(18, Pin.OUT)   
+led = Pin(22, Pin.OUT)   
 
 while True:
     led.value(1)    # Led turns on
