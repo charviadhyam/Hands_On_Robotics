@@ -74,173 +74,192 @@ def measure_distance():
         return dist_cm
     except:
         return None
-
-def banner():
-    return """
-    <div class="banner">
-        <h2>Hands-On Robotics</h2>
-        <p>by <span>RoboVITics Club</span></p>
-    </div>
-    """
-
 def login_page():
     return """<!DOCTYPE html>
 <html>
 <head>
     <title>Login</title>
     <style>
-body {
-    background-color: #121212;
-    font-family: 'Arial', sans-serif;
+    body {
+    background-color: black;
+    font-family: 'Pacifico', cursive;
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
     margin: 0;
-    color: #eee;
 }
 .login-container {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 50px;
+    gap: 50px; /* to make space between login box and company name */
 }
 .login-box {
-    background: #1e1e1e;
+    background: black;
     padding: 32px;
-    border: 1px solid #333;
-    border-radius: 12px;
-    color: #eee;
-    box-shadow: 0 0 15px rgba(0,0,0,0.8);
+    justify-content: center;
+    border: 1px solid dimgray;
+    border-radius: 10px;
+    color:whitesmoke;
+    box-shadow: 0 0 25px cyan;
     width: 350px;
-    max-width: 90%;
+    max-width:90%;
+    /* TOGGLE EFFECT FOR LOGIN BOX */
     transition: all 0.3s ease;
+    transform: scale(1);
 }
 .login-box:hover {
-    transform: scale(1.03);
-    box-shadow: 0 0 25px rgba(0, 255, 180, 0.5);
+    transform: scale(1.05);
+    box-shadow: 0 0 35px cyan;
+
 }
-h2 { text-align: center; }
+h2 {
+    text-align: center;
+}
 input[type="text"], input[type="password"] {
-    width: 100%; padding: 10px; margin: 10px 0;
-    border: 1px solid #444; border-radius: 6px;
-    background: #2a2a2a; color: #eee;
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid black;
+    border-radius: 5px;
+    font: inherit;
+    box-sizing: border-box;
+    background: white;
+    color: black;
 }
 button {
-    width: 100%; padding: 12px;
-    background-color: #00ffaa;
-    border: none; border-radius: 6px;
-    cursor: pointer; font-weight: bold;
-    color: #000;
-    transition: all 0.3s ease;
+    width: 100%;
+    padding: 12px;
+    background-color:cyan;
+    color:black;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    font: inherit;
+    margin-top: 16px;
 }
-button:hover {
-    background-color: #00dd99;
-    box-shadow: 0 4px 15px rgba(0, 255, 180, 0.5);
-}
-.banner {
+.name {
     text-align: center;
-    color: #00ffaa;
+    color: cyan;
     font-size: 1.5rem;
     line-height: 1.4;
 }
-.banner span {
-    color: #00ccff;
+.info {
+    margin: 0;
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 40px; 
     font-weight: bold;
+    color: whitesmoke;
+    letter-spacing: 3px; 
+    text-transform: uppercase; 
 }
     </style>
 </head>
 <body>
-     <div class="login-container">
+    <div class="login-container">
         <form class="login-box" method="POST" action="/login">
             <h2>Login</h2>
             <input type="text" name="username" placeholder="Username" required><br>
             <input type="password" name="password" placeholder="Password" required><br>
             <button type="submit">Sign In</button>
         </form>
-        """ + banner() + """
+    <div class="name">
+    <h2 class="info"><strong>HANDS ON ROBOTICS</strong></h2>
+    <p>By <b>RoboVITics Club</b></p>
+    </div>
     </div>
 </body>
-</html>"""
+</html> """
 
 def html_page():
-    return """<!DOCTYPE html>
+    return """ <!DOCTYPE html>
 <html>
 <head>
     <title>ESP32 Bot Control</title>
     <style>
-body {
-  font-family: Arial, sans-serif;
-  background-color: #121212;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  height: 100vh;
-  margin: 0;
-  color: #eee;
+        * {box-sizing: border-box;}
+
+body{
+  padding-top: 20px;
+  font-family:Arial,sans-serif;
+  background-color:black;
+  display:flex;
+  font-size:1.5rem;
+  flex-direction:column;
+  align-items:center;
+  margin:0;
 }
-h1 { color: #00ffaa; margin-bottom: 20px; }
-.button-container {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  grid-template-rows: 1fr 1fr 1fr;
-  gap: 20px;
-  width: 300px; height: 300px;
-  margin-bottom: 30px;
+h1{
+  text-align: center;
+  color:cyan;
 }
-.button {
-  padding: 15px 30px;
-  font-size: 16px;
-  font-weight: bold;
+.button,.info{
+  background-color: dimgrey;
+  color:cyan;
+  margin-bottom: 10px;
+}
+.button-container{
+  display:grid;
+  grid-template-columns:1fr 1fr 1fr;
+  grid-template-rows:1fr 1fr 1fr;
+  gap:10px;
+  width:300px;
+  height:300px;
+  margin-bottom:30px;
+}
+.button{
+  padding:15px 30px;
+  font-size:16px;
+  font-weight:bold;
+  background:black;
+  color: cyan;
+  border:2px solid cyan;
   border-radius: 12px;
-  background: #1e1e1e;
-  border: 2px solid #00ffaa;
-  color: #00ffaa;
-  text-decoration: none;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  transition: all 0.2s;
+  cursor:pointer;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-decoration:none;
+  transition:all 0.2s;
 }
-.button:hover {
-  background-color: #00ffaa;
+.button:hover{
+  background-color: cyan;
   color: #000;
-  box-shadow: 0 6px 15px rgba(0,255,180,0.5);
+  box-shadow:0 6px 15px rgba(0,255,180,0.5);
+  transform:translateY(-8px);
 }
-.center-dot {
-  width: 16px; height: 16px;
-  background-color: #444;
-  border-radius: 50%;
-  align-self: center;
-  justify-self: center;
+.button:active{transform:translateY(0);}
+.center-dot{
+  width:16px;
+  height:16px;
+  background-color:cyan;
+  border-radius:50%;
+  align-self:center;
+  justify-self:center; 
 }
-.info {
-  margin-top: 20px;
-  font-size: 18px;
-  padding: 15px 25px;
-  background: #1e1e1e;
-  border-radius: 8px;
-  color: #00ccff;
-  border: 1px solid #333;
-}
-.banner {
-    text-align: center;
-    margin-top: 20px;
-    color: #00ffaa;
-    font-size: 1.3rem;
-    line-height: 1.4;
-}
-.banner span {
-    color: #00ccff;
-    font-weight: bold;
+.info{
+  background-color: black;
+  margin-top:30px;
+  font-size:18px;
+  padding:15px 30px;
+  border-radius:8px;
+  color: whitesmoke;
+  border: 2px solid cyan;
 }
 .forward{grid-column:2;grid-row:1;}
 .left{grid-column:1;grid-row:2;}
 .right{grid-column:3;grid-row:2;}
 .backward{grid-column:2;grid-row:3;}
 .center-dot{grid-column:2;grid-row:2;}
+.name{
+    text-align: center;
+    margin-top: 20px;
+    color: cyan;
+    font-size: 1.3rem;
+    line-height: 1.4;
+}
     </style>
     <script>
         function updateDistance() {
@@ -252,7 +271,6 @@ h1 { color: #00ffaa; margin-bottom: 20px; }
         }
         setInterval(updateDistance, 500);
         window.onload = updateDistance;
-
         // Movement handling (hold button = move, release = stop)
         function sendCommand(cmd, isDown) {
             fetch(isDown ? '/' + cmd : '/stop');
@@ -269,7 +287,7 @@ h1 { color: #00ffaa; margin-bottom: 20px; }
          ontouchend="sendCommand('forward',false)">Forward</div>
 
     <div class="button left" 
-         onmousedown="sendCommand('left',true)" 
+         onmousedown="sendCommand('left',true)"
          onmouseup="sendCommand('left',false)" 
          ontouchstart="sendCommand('left',true)" 
          ontouchend="sendCommand('left',false)">Left</div>
@@ -288,12 +306,13 @@ h1 { color: #00ffaa; margin-bottom: 20px; }
          ontouchstart="sendCommand('backward',true)" 
          ontouchend="sendCommand('backward',false)">Backward</div>
 </div>
-
-<div class="info" id="distance">Loading...</div>
-""" + banner() + """
+    <div class="info" id="distance">Loading...</div>
+    <div class="name">
+    <h2><strong>HANDS ON ROBOTICS</strong></h2>
+    <p>By <b>RoboVITics Club</b></p>
+    </div>
 </body>
-</html>"""
-
+</html> """
 def handle_client(client):
     global session_authenticated
     request = client.recv(1024).decode('utf-8')
@@ -341,15 +360,18 @@ def handle_client(client):
         return
 
     # Bot movement control
-    if "/forward" in path:
+    if path == "/forward":
         move_forward()
-    elif "/backward" in path:
+    elif path == "/backward":
         move_backward()
-    elif "/left" in path:
+    elif path == "/left":
         move_left()
-    elif "/right" in path:
+    elif path == "/right":
         move_right()
-    elif "/stop" in path:
+    elif path == "/stop":
+        stop()
+    else:
+    # Default = stop (safety)
         stop()
 
     # Main control UI
